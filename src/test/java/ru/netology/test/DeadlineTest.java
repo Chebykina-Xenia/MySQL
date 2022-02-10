@@ -1,20 +1,12 @@
 package ru.netology.test;
 
-import com.codeborne.selenide.SelenideElement;
-import lombok.SneakyThrows;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ru.netology.data.DataHelper;
 import ru.netology.database.Database;
-import ru.netology.page.DashboardPage;
 import ru.netology.page.LoginPage;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-
-import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -26,7 +18,6 @@ public class DeadlineTest {
         open("http://localhost:9999/");
     }
 
-    @SneakyThrows
     @Test
         //УСПЕШНАЯ АВТОРИЗАЦИЯ
     void shouldBeSuccessfulAuthorization() {

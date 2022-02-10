@@ -69,12 +69,18 @@ public class Database {
     @SneakyThrows
     //очищаем БД
     public static void cleanDatabase() {
+        String deleteCards = "DELETE FROM cards WHERE TRUE;";
         String deleteAuthCodes = "DELETE FROM auth_codes WHERE TRUE;";
+        String deleteUsers = "DELETE FROM users WHERE TRUE;";
 
         try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/app", "app", "pass");
-             Statement deleteAuthCodesStatmrnt = connection.createStatement();
+             Statement deleteCardsStatment = connection.createStatement();
+             Statement deleteAuthCodesStatment = connection.createStatement();
+             Statement deleteUsersStatment = connection.createStatement();
         ) {
-            deleteAuthCodesStatmrnt.executeUpdate(deleteAuthCodes);
+            deleteCardsStatment.executeUpdate(deleteCards);
+            deleteAuthCodesStatment.executeUpdate(deleteAuthCodes);
+            deleteUsersStatment.executeUpdate(deleteUsers);
         }
     }
 }
